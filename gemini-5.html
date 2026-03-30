@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gold Trading Terminal Pro - XAUUSD</title>
+    <link rel="icon" href="fav.png" type="image/x-icon">
+    <style>
+        body { font-family: 'Inter', -apple-system, sans-serif; background-color: #0d1117; color: #e6edf3; margin: 0; padding: 0; scroll-behavior: smooth; }
+        
+        /* Top Bar ใหม่: จัดความสูงให้พอดีกับ Widget มาตรฐาน (46px-50px) */
+        .top-bar { 
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #30363d; 
+            padding: 0 15px; 
+            position: sticky; 
+            top: 0;
+            background-color: #0d1117;
+            z-index: 1000;
+            height: 52px; /* ความสูงมาตรฐานที่ Widget ไม่พัง */
+        }
+
+        .brand-name { font-weight: bold; font-size: 0.95rem; color: #ffffff; white-space: nowrap; margin-right: 15px; }
+
+        /* Container สำหรับ Ticker Tape - ให้ขยายเต็มพื้นที่ตรงกลาง */
+        .ticker-container { 
+            flex-grow: 1; 
+            height: 46px; /* ความสูงตามมาตรฐาน TradingView */
+            overflow: hidden; 
+            margin: 0 10px;
+        }
+
+        /* ปุ่ม Navigation 1-5 */
+        .nav-links { display: flex; gap: 5px; align-items: center; margin: 0 10px; }
+        .nav-item { 
+            background: #161b22; color: #58a6ff; border: 1px solid #30363d; 
+            width: 28px; height: 28px; display: flex; align-items: center; justify-content: center;
+            border-radius: 4px; text-decoration: none; font-weight: bold; font-size: 0.8rem; transition: 0.2s; 
+        }
+        .nav-item:hover { background: #30363d; border-color: #58a6ff; }
+
+        .btn-toggle { background-color: #238636; color: white; border: none; padding: 6px 12px; border-radius: 6px; cursor: pointer; font-weight: bold; font-size: 0.75rem; white-space: nowrap;}
+        .btn-toggle.off { background-color: #da3633; }
+
+        .header-section { max-width: 1400px; margin: 10px auto; padding: 0 15px; }
+        .price-summary { width: 100%; height: 160px; background: #161b22; border-radius: 10px; border: 1px solid #30363d; overflow: hidden; }
+
+        .grid-container { display: grid; grid-template-columns: 1fr; gap: 25px; max-width: 1400px; margin: 0 auto; padding: 0 15px 30px; }
+        .chart-card { background: #161b22; border: 1px solid #30363d; border-radius: 10px; overflow: hidden; scroll-margin-top: 50px; }
+        .chart-header { background: #21262d; padding: 8px 15px; font-weight: bold; font-size: 0.85rem; color: #58a6ff; border-bottom: 1px solid #30363d; }
+        .chart-container { height: 450px; width: 100%; }
+
+        @media (max-width: 1000px) { .ticker-container { display: none; } }
+    </style>
+</head>
+<body>
+
+<div class="top-bar">
+    <div class="brand-name">Gold Terminal</div>
+    
+    <div class="ticker-container">
+        <div class="tradingview-widget-container">
+            <div class="tradingview-widget-container__widget"></div>
+            <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
+            {
+              "symbols": [
+                { "proName": "OANDA:XAUUSD", "title": "GOLD" },
+                { "proName": "CAPITALCOM:DXY", "title": "USDX" }
+              ],
+              "showSymbolLogo": true,
+              "colorTheme": "dark",
+              "isTransparent": true,
+              "displayMode": "adaptive",
+              "locale": "th"
+            }
+            </script>
+        </div>
+    </div>
+
+    <div class="nav-links">
+        <a href="#tv_core_pro" class="nav-item">1</a>
+        <a href="#tv_scalper" class="nav-item">2</a>
+        <a href="#tv_trend_follower" class="nav-item">3</a>
+        <a href="#tv_mean_reversion" class="nav-item">4</a>
+        <a href="#tv_flow_master" class="nav-item">5</a>
+    </div>
+
+    <div class="controls">
+        <button id="toggleBtn" class="btn-toggle" onclick="toggleIndicators()">Indicator: ON</button>
+    </div>
+</div>
+
+<div class="header-section">
+    <div class="price-summary">
+        <div class="tradingview-widget-container">
+            <div class="tradingview-widget-container__widget"></div>
+            <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-symbol-overview.js" async>
+            {
+              "symbols": [ ["OANDA:XAUUSD|1D"] ],
+              "chartOnly": false, "width": "100%", "height": "160", "locale": "th", "colorTheme": "dark", "gridLineColor": "rgba(42, 46, 57, 0)", "fontColor": "#787b86", "isTransparent": true, "container_id": "tradingview_summary"
+            }
+            </script>
+        </div>
+    </div>
+</div>
+
+<div class="grid-container" id="chartsGrid"></div>
+
+<script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
+<script type="text/javascript">
+    let indicatorsOn = true;
+
+    const chartConfigs = [
+        { id: "tv_core_pro", title: "1. The Core Pro (1H)", interval: "60", studies: ["MAExp@tv-basicstudies", "RSI@tv-basicstudies", "BB@tv-basicstudies", "StochasticRSI@tv-basicstudies", "MACD@tv-basicstudies"] },
+        { id: "tv_scalper", title: "2. Volatility Scalper (15M)", interval: "15", studies: ["STD;PSAR", "Stochastic@tv-basicstudies", "ATR@tv-basicstudies", "STD;MA%1Cross"] },
+        { id: "tv_trend_follower", title: "3. Trend Follower (Daily)", interval: "D", studies: ["MASimple@tv-basicstudies", "STD;Momentum", "StdDev@tv-basicstudies", "OBV@tv-basicstudies", "IchimokuCloud@tv-basicstudies"] },
+        { id: "tv_mean_reversion", title: "4. Mean Reversion (30M)", interval: "30", studies: ["STD;Donchian_Channels", "STD;TEMA", "STD;Willams_R", "STD;Keltner_Channels", "STD;Accumulation_Distribution"] },
+        { id: "tv_flow_master", title: "5. Flow Master (4H)", interval: "240", studies: ["ZigZag@tv-basicstudies", "STD;Money_Flow", "ChaikinOscillator@tv-basicstudies", "EaseOfMovement@tv-basicstudies", "MACD@tv-basicstudies"] }
+    ];
+
+    function initCharts() {
+        const grid = document.getElementById('chartsGrid');
+        grid.innerHTML = ''; 
+        chartConfigs.forEach(conf => {
+            const card = document.createElement('div');
+            card.className = 'chart-card';
+            card.id = conf.id; 
+            card.innerHTML = `<div class="chart-header">${conf.title}</div><div id="container_${conf.id}" class="chart-container"></div>`;
+            grid.appendChild(card);
+            new TradingView.widget({
+                "container_id": "container_" + conf.id,
+                "autosize": true,
+                "symbol": "OANDA:XAUUSD",
+                "interval": conf.interval,
+                "timezone": "Asia/Bangkok",
+                "theme": "dark",
+                "style": "1",
+                "locale": "th",
+                "studies": indicatorsOn ? conf.studies : []
+            });
+        });
+    }
+
+    function toggleIndicators() {
+        indicatorsOn = !indicatorsOn;
+        const btn = document.getElementById('toggleBtn');
+        btn.innerText = indicatorsOn ? "Indicator: ON" : "Indicator: OFF";
+        btn.className = indicatorsOn ? "btn-toggle" : "btn-toggle off";
+        initCharts();
+    }
+    initCharts();
+</script>
+
+</body>
+</html>

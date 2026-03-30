@@ -1,0 +1,462 @@
+<!doctype html>
+<html lang="th">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>GOLD - Home</title>
+<link rel="icon" href="fav.png" type="image/x-icon">
+
+<style>
+body{
+  font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+  max-width:1100px;
+  margin:0 auto;
+  padding:16px;
+  line-height:1.6;
+}
+
+/* ===== GRID DEFAULT (Desktop = 3 columns) ===== */
+.grid-3{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:12px;
+}
+
+/* ===== Tablet (<= 1024px) = 2 columns ===== */
+@media (max-width:1024px){
+  .grid-3{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+  }
+}
+
+/* ===== Mobile (<= 600px) = 1 column ===== */
+@media (max-width:600px){
+  .grid-3{
+    grid-template-columns:1fr;
+  }
+}
+
+/* collapsible icon */
+details > summary {
+  display:flex;
+  align-items:center;
+  gap:6px;
+  list-style:none;
+}
+details > summary::-webkit-details-marker { display:none; }
+details > summary::before {
+  content:"▶";
+  font-size:12px;
+  transition:.15s;
+}
+details[open] > summary::before {
+  transform:rotate(90deg);
+}
+
+</style>
+
+</head>
+
+<body>
+<div class="tradingview-widget-container">
+  <div class="tradingview-widget-container__widget"></div>
+  <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
+  {
+  "symbols": [
+    { "proName": "OANDA:XAUUSD", "title": "GOLD" },
+    { "proName": "CAPITALCOM:DXY", "title": "USD Index" },
+    { "proName": "NASDAQ:AAPL", "title": "Apple" },
+    { "proName": "NASDAQ:MSFT", "title": "Microsoft" },
+    { "proName": "NASDAQ:NVDA", "title": "NVIDIA" },
+    { "proName": "NASDAQ:AMZN", "title": "Amazon" },
+    { "proName": "NASDAQ:GOOGL", "title": "Alphabet (Google)" },
+    { "proName": "NASDAQ:META", "title": "Meta" },
+    { "proName": "NASDAQ:TSLA", "title": "Tesla" },
+    { "proName": "NYSE:BRK.B", "title": "Berkshire Hathaway" },
+    { "proName": "NYSE:LLY", "title": "Eli Lilly" },
+    { "proName": "NASDAQ:AVGO", "title": "Broadcom" }
+  ],
+  "showSymbolLogo": true,
+  "colorTheme": "light",
+  "isTransparent": false,
+  "displayMode": "adaptive",
+  "locale": "th"
+}
+  </script>
+</div>
+
+<div align="center">
+<a href="index.html">
+<img src="logo.png" height="150">
+</a>
+<div style="color:#666;font-size:18px;">
+"ความเสี่ยงเกิดจากการไม่รู้ว่าคุณกำลังทำอะไร" – วอร์เรน บัฟเฟตต์
+</div>
+</div>
+
+<div style="margin-top:14px;">
+
+<!-- ===== TOP ===== -->
+<div class="grid-3" style="padding-bottom:20px;">
+
+<div style="border:1px solid #eee;border-radius:10px;padding:12px;">
+<div style="font-weight:700;margin-bottom:8px;padding:8px;background:#f7f7f7;border-radius:8px;">
+RSI + Stoch RSI
+</div>
+<ul>
+    <li style="margin:4px 0;"><a href="ma-ribbon.html" title="MA Ribbon" target="_blank" rel="noopener">MA Ribbon</a></li>
+    <li style="margin:4px 0;"><a href="ma-cross.html" title="MA Cross" target="_blank" rel="noopener">MA Cross</a></li>
+    <li style="margin:4px 0;"><a href="bb.html" title="Bollinger Bands" target="_blank" rel="noopener">Bollinger Bands</a></li>
+    <li style="margin:4px 0;"><a href="dc.html" title="Donchian Channels" target="_blank" rel="noopener">Donchian Channels</a></li>
+    <li style="margin:4px 0;"><a href="super.html" title="Supertrend" target="_blank" rel="noopener">Supertrend</a></li> 
+    <li style="margin:4px 0;"><a href="kc.html" title="Keltner Channels" target="_blank" rel="noopener">Keltner Channels</a></li>
+    <li style="margin:4px 0;"><a href="r-s.html" title="Combine All" target="_blank" rel="noopener">Combine All</a></li>
+</ul>
+</div>
+
+<div style="border:1px solid #eee;border-radius:10px;padding:12px;">
+<div style="font-weight:700;margin-bottom:8px;padding:8px;background:#f7f7f7;border-radius:8px;">
+RSI + MACD
+</div>
+<ul>
+    <li style="margin:4px 0;"><a href="ma-ribbon-2.html" title="MA Ribbon" target="_blank" rel="noopener">MA Ribbon</a></li>
+    <li style="margin:4px 0;"><a href="ma-cross-2.html" title="MA Cross" target="_blank" rel="noopener">MA Cross</a></li>
+    <li style="margin:4px 0;"><a href="bb-2.html" title="Bollinger Bands" target="_blank" rel="noopener">Bollinger Bands</a></li>
+    <li style="margin:4px 0;"><a href="dc-2.html" title="Donchian Channels" target="_blank" rel="noopener">Donchian Channels</a></li>
+    <li style="margin:4px 0;"><a href="super-2.html" title="Supertrend" target="_blank" rel="noopener">Supertrend</a></li> 
+    <li style="margin:4px 0;"><a href="kc-2.html" title="Keltner Channels" target="_blank" rel="noopener">Keltner Channels</a></li>
+    <li style="margin:4px 0;"><a href="r-m.html" title="Combine All" target="_blank" rel="noopener">Combine All</a></li>
+</ul>
+</div>
+
+<div style="border:1px solid #eee;border-radius:10px;padding:12px;">
+<div style="font-weight:700;margin-bottom:8px;padding:8px;background:#f7f7f7;border-radius:8px;">
+MACD + Stoch RSI
+</div>
+<ul>
+    <li style="margin:4px 0;"><a href="ma-ribbon-3.html" title="MA Ribbon" target="_blank" rel="noopener">MA Ribbon</a></li>
+    <li style="margin:4px 0;"><a href="ma-cross-3.html" title="MA Cross" target="_blank" rel="noopener">MA Cross</a></li>
+    <li style="margin:4px 0;"><a href="bb-3.html" title="Bollinger Bands" target="_blank" rel="noopener">Bollinger Bands</a></li>
+    <li style="margin:4px 0;"><a href="dc-3.html" title="Donchian Channels" target="_blank" rel="noopener">Donchian Channels</a></li>   
+    <li style="margin:4px 0;"><a href="super-3.html" title="Supertrend" target="_blank" rel="noopener">Supertrend</a></li>    
+    <li style="margin:4px 0;"><a href="kc-3.html" title="Keltner Channels" target="_blank" rel="noopener">Keltner Channels</a></li>
+    <li style="margin:4px 0;"><a href="m-s.html" title="Combine All" target="_blank" rel="noopener">Combine All</a></li>
+</ul>
+</div>
+
+</div>
+
+<!-- ===== MIDDLE ===== -->
+<div class="grid-3" style="padding-bottom:20px;">
+   <div style="border:1px solid #eee;border-radius:10px;padding:12px;">
+<div style="font-weight:700;margin-bottom:8px;padding:8px;background:#f7f7f7;border-radius:8px;">
+Trading System
+</div>
+<ul>
+    <li style="margin:4px 0;"><a href="gemini-5.html" title="Gemini 5 Templates" target="_blank" rel="noopener">Gemini 5 Templates</a></li>
+    <li style="margin:4px 0;"><a href="gbp-usd.html" title="GBP/USD" target="_blank" rel="noopener">TBD</a></li>
+    <li style="margin:4px 0;"><a href="aud-usd.html" title="AUD/USD" target="_blank" rel="noopener">TBD</a></li>
+    <li style="margin:4px 0;"><a href="nzd-usd.html" title="NZD/USD" target="_blank" rel="noopener">TBD</a></li>
+    <li style="margin:4px 0;"><a href="usd-jpy.html" title="USD/JPY" target="_blank" rel="noopener">TBD</a></li>
+    <li style="margin:4px 0;"><a href="usd-chf.html" title="USD/CHF" target="_blank" rel="noopener">TBD</a></li>
+    <li style="margin:4px 0;"><a href="usd-cad.html" title="USD/CAD" target="_blank" rel="noopener">TBD</a></li>  
+</ul>
+</div>	
+
+  <div style="border:1px solid #eee;border-radius:10px;padding:12px;">
+<div style="font-weight:700;margin-bottom:8px;padding:8px;background:#f7f7f7;border-radius:8px;">
+Trading System
+</div>
+<ul>
+    <li style="margin:4px 0;"><a href="eur-usd.html" title="EUR/USD" target="_blank" rel="noopener">TBD</a></li>
+    <li style="margin:4px 0;"><a href="gbp-usd.html" title="GBP/USD" target="_blank" rel="noopener">TBD</a></li>
+    <li style="margin:4px 0;"><a href="aud-usd.html" title="AUD/USD" target="_blank" rel="noopener">TBD</a></li>
+    <li style="margin:4px 0;"><a href="nzd-usd.html" title="NZD/USD" target="_blank" rel="noopener">TBD</a></li>
+    <li style="margin:4px 0;"><a href="usd-jpy.html" title="USD/JPY" target="_blank" rel="noopener">TBD</a></li>
+    <li style="margin:4px 0;"><a href="usd-chf.html" title="USD/CHF" target="_blank" rel="noopener">TBD</a></li>
+    <li style="margin:4px 0;"><a href="usd-cad.html" title="USD/CAD" target="_blank" rel="noopener">TBD</a></li>  
+</ul>
+</div>
+
+<div style="border:1px solid #eee;border-radius:10px;padding:12px;">
+<div style="font-weight:700;margin-bottom:8px;padding:8px;background:#f7f7f7;border-radius:8px;">
+Trading System
+</div>
+<ul>
+    <li style="margin:4px 0;"><a href="usd-jpy.html" title="USD/JPY" target="_blank" rel="noopener">TBD</a></li>
+    <li style="margin:4px 0;"><a href="eur-jpy.html" title="EUR/JPY" target="_blank" rel="noopener">TBD</a></li>
+    <li style="margin:4px 0;"><a href="gbp-jpy.html" title="GBP/JPY" target="_blank" rel="noopener">TBD</a></li>
+    <li style="margin:4px 0;"><a href="aud-jpy.html" title="AUD/JPY" target="_blank" rel="noopener">TBD</a></li>    
+    <li style="margin:4px 0;"><a href="nzd-jpy.html" title="NZD/JPY" target="_blank" rel="noopener">TBD</a></li>    
+    <li style="margin:4px 0;"><a href="cad-jpy.html" title="CAD/JPY" target="_blank" rel="noopener">TBD</a></li>
+    <li style="margin:4px 0;"><a href="chf-jpy.html" title="CHF/JPY" target="_blank" rel="noopener">TBD</a></li>
+</ul>
+</div>
+
+</div>
+
+<!-- ===== BOTTOM (Widget) ===== -->
+<div class="grid-3">
+
+<div style="border:1px solid #eee;border-radius:10px;padding:12px;height:550px;">
+          <div style="font-weight:700;margin-bottom:8px;padding:8px 10px;border-radius:8px;background:#f7f7f7;">
+        ราคาปัจจุบัน "ทองคำ"
+      	  </div>
+      	  <div style="height:500px;">      
+    <!-- TradingView Widget BEGIN -->
+<div class="tradingview-widget-container">
+  <div class="tradingview-widget-container__widget"></div>
+  <div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/markets/" rel="noopener nofollow" target="_blank"><span class="blue-text">World markets</span></a><span class="trademark"> by TradingView</span></div>
+  <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-market-overview.js" async>
+  {
+  "colorTheme": "light",
+  "dateRange": "12M",
+  "locale": "en",
+  "largeChartUrl": "",
+  "isTransparent": false,
+  "showFloatingTooltip": false,
+  "plotLineColorGrowing": "rgba(41, 98, 255, 1)",
+  "plotLineColorFalling": "rgba(41, 98, 255, 1)",
+  "gridLineColor": "rgba(240, 243, 250, 0)",
+  "scaleFontColor": "#0F0F0F",
+  "belowLineFillColorGrowing": "rgba(41, 98, 255, 0.12)",
+  "belowLineFillColorFalling": "rgba(41, 98, 255, 0.12)",
+  "belowLineFillColorGrowingBottom": "rgba(41, 98, 255, 0)",
+  "belowLineFillColorFallingBottom": "rgba(41, 98, 255, 0)",
+  "symbolActiveColor": "rgba(41, 98, 255, 0.12)",
+  "tabs": [
+    {
+      "title": "Forex",
+      "symbols": [
+        {
+          "s": "OANDA:XAUUSD",
+          "d": "Gold to USD",
+          "logoid": "metal/gold",
+          "currency-logoid": "country/US"
+        },
+        {
+          "s": "FXOPEN:DXY",
+          "d": "US Dollar Index",
+          "currency-logoid": "country/US"
+        }
+      ],
+      "originalTitle": "Forex"
+    }
+  ],
+  "support_host": "https://www.tradingview.com",
+  "width": "100%",
+  "height": "100%",
+  "showSymbolLogo": true,
+  "showChart": false
+}
+  </script>
+</div>
+<!-- TradingView Widget END -->
+			</div>
+      
+</div>
+
+<div style="border:1px solid #eee;border-radius:10px;padding:12px;height:550px;">
+          <div style="font-weight:700;margin-bottom:8px;padding:8px 10px;border-radius:8px;background:#f7f7f7;">
+       ราคาปัจจุบันกลุ่ม "USD"
+      		</div>
+            <div style="height:500px;">
+<!-- TradingView Widget BEGIN -->
+<div class="tradingview-widget-container">
+  <div class="tradingview-widget-container__widget"></div>
+  <div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/markets/" rel="noopener nofollow" target="_blank"><span class="blue-text">World markets</span></a><span class="trademark"> by TradingView</span></div>
+  <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-market-overview.js" async>
+  {
+  "colorTheme": "light",
+  "dateRange": "12M",
+  "locale": "en",
+  "largeChartUrl": "",
+  "isTransparent": false,
+  "showFloatingTooltip": false,
+  "plotLineColorGrowing": "rgba(41, 98, 255, 1)",
+  "plotLineColorFalling": "rgba(41, 98, 255, 1)",
+  "gridLineColor": "rgba(240, 243, 250, 0)",
+  "scaleFontColor": "#0F0F0F",
+  "belowLineFillColorGrowing": "rgba(41, 98, 255, 0.12)",
+  "belowLineFillColorFalling": "rgba(41, 98, 255, 0.12)",
+  "belowLineFillColorGrowingBottom": "rgba(41, 98, 255, 0)",
+  "belowLineFillColorFallingBottom": "rgba(41, 98, 255, 0)",
+  "symbolActiveColor": "rgba(41, 98, 255, 0.12)",
+  "tabs": [
+    {
+      "title": "Forex",
+      "symbols": [
+        {
+          "s": "FX:EURUSD",
+          "d": "EUR to USD"
+        },
+        {
+          "s": "FX:GBPUSD",
+          "d": "GBP to USD"
+        },
+        {
+          "s": "FX:AUDUSD",
+          "d": "AUD to USD"
+        },
+        {
+          "s": "OANDA:NZDUSD",
+          "d": "NZD to USD",
+          "base-currency-logoid": "country/NZ",
+          "currency-logoid": "country/US"
+        },
+        {
+          "s": "OANDA:USDJPY",
+          "d": "USD to JPY",
+          "base-currency-logoid": "country/US",
+          "currency-logoid": "country/JP"
+        },
+        {
+          "s": "OANDA:USDCHF",
+          "d": "USD to CHF",
+          "base-currency-logoid": "country/US",
+          "currency-logoid": "country/CH"
+        },
+        {
+          "s": "OANDA:USDCAD",
+          "d": "USD to CAD",
+          "base-currency-logoid": "country/US",
+          "currency-logoid": "country/CA"
+        }
+      ],
+      "originalTitle": "Forex"
+    }
+  ],
+  "support_host": "https://www.tradingview.com",
+  "width": "100%",
+  "height": "100%",
+  "showSymbolLogo": true,
+  "showChart": false
+}
+  </script>
+</div>
+<!-- TradingView Widget END -->      
+ </div> 
+</div>
+
+<div style="border:1px solid #eee;border-radius:10px;padding:12px;height:550px;">
+          <div style="font-weight:700;margin-bottom:8px;padding:8px 10px;border-radius:8px;background:#f7f7f7;">
+       ราคาปัจจุบันกลุ่ม "JPY"
+      </div>
+      <div style="height:500px;">      
+     <!-- TradingView Widget BEGIN -->
+<div class="tradingview-widget-container">
+  <div class="tradingview-widget-container__widget"></div>
+  <div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/markets/" rel="noopener nofollow" target="_blank"><span class="blue-text">World markets</span></a><span class="trademark"> by TradingView</span></div>
+  <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-market-overview.js" async>
+  {
+  "colorTheme": "light",
+  "dateRange": "12M",
+  "locale": "en",
+  "largeChartUrl": "",
+  "isTransparent": false,
+  "showFloatingTooltip": false,
+  "plotLineColorGrowing": "rgba(41, 98, 255, 1)",
+  "plotLineColorFalling": "rgba(41, 98, 255, 1)",
+  "gridLineColor": "rgba(240, 243, 250, 0)",
+  "scaleFontColor": "#0F0F0F",
+  "belowLineFillColorGrowing": "rgba(41, 98, 255, 0.12)",
+  "belowLineFillColorFalling": "rgba(41, 98, 255, 0.12)",
+  "belowLineFillColorGrowingBottom": "rgba(41, 98, 255, 0)",
+  "belowLineFillColorFallingBottom": "rgba(41, 98, 255, 0)",
+  "symbolActiveColor": "rgba(41, 98, 255, 0.12)",
+  "tabs": [
+    {
+      "title": "Forex",
+      "symbols": [
+        {
+          "s": "OANDA:USDJPY",
+          "d": "USD to JPY",
+          "base-currency-logoid": "country/US",
+          "currency-logoid": "country/JP"
+        },
+        {
+          "s": "OANDA:EURJPY",
+          "d": "EUR to JPY",
+          "base-currency-logoid": "country/EU",
+          "currency-logoid": "country/JP"
+        },
+        {
+          "s": "OANDA:GBPJPY",
+          "d": "GBP to JPY",
+          "base-currency-logoid": "country/GB",
+          "currency-logoid": "country/JP"
+        },
+        {
+          "s": "OANDA:AUDJPY",
+          "d": "AUD to JPY",
+          "base-currency-logoid": "country/AU",
+          "currency-logoid": "country/JP"
+        },
+        {
+          "s": "OANDA:NZDJPY",
+          "d": "NZD to JPY",
+          "base-currency-logoid": "country/NZ",
+          "currency-logoid": "country/JP"
+        },
+        {
+          "s": "OANDA:CADJPY",
+          "d": "CAD to JPY",
+          "base-currency-logoid": "country/CA",
+          "currency-logoid": "country/JP"
+        },
+        {
+          "s": "OANDA:CHFJPY",
+          "d": "CHF to JPY",
+          "base-currency-logoid": "country/CH",
+          "currency-logoid": "country/JP"
+        }
+      ],
+      "originalTitle": "Forex"
+    }
+  ],
+  "support_host": "https://www.tradingview.com",
+  "width": "100%",
+  "height": "100%",
+  "showSymbolLogo": true,
+  "showChart": false
+}
+  </script>
+</div>
+<!-- TradingView Widget END -->
+</div>
+</div>
+
+</div>
+<!-- END 3rd TABLE -->
+</div>
+<!-- END SITELINK TABLE -->
+<div style="height:50px"></div>
+
+<div class="tradingview-widget-container">
+  <div class="tradingview-widget-container__widget"></div>
+  <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
+  {
+  "symbols": [
+    { "proName": "OANDA:XAUUSD", "title": "GOLD" },
+    { "proName": "CAPITALCOM:DXY", "title": "USD Index" },
+    { "proName": "NASDAQ:AAPL", "title": "Apple" },
+    { "proName": "NASDAQ:MSFT", "title": "Microsoft" },
+    { "proName": "NASDAQ:NVDA", "title": "NVIDIA" },
+    { "proName": "NASDAQ:AMZN", "title": "Amazon" },
+    { "proName": "NASDAQ:GOOGL", "title": "Alphabet (Google)" },
+    { "proName": "NASDAQ:META", "title": "Meta" },
+    { "proName": "NASDAQ:TSLA", "title": "Tesla" },
+    { "proName": "NYSE:BRK.B", "title": "Berkshire Hathaway" },
+    { "proName": "NYSE:LLY", "title": "Eli Lilly" },
+    { "proName": "NASDAQ:AVGO", "title": "Broadcom" }
+  ],
+  "showSymbolLogo": true,
+  "colorTheme": "light",
+  "isTransparent": false,
+  "displayMode": "adaptive",
+  "locale": "th"
+}
+  </script>
+</div>
+</body>
+</html>
